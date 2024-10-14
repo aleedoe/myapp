@@ -1,5 +1,8 @@
 # Simple App
 
+Mushyafa Ali
+5220411358
+
 Tugas Widget Pertemuan 4
 
 ## `main.dart`
@@ -39,32 +42,32 @@ import 'package:myapp/pages/login.dart';
 ```
 
 Pada bagian ini, terdapat dua library yang diimpor:
-- flutter/material.dart: Library ini merupakan bagian dari framework Flutter yang menyediakan widget dan fitur Material Design.
-- myapp/pages/login.dart: File ini mengimpor file eksternal login.dart yang berada di folder pages. File ini akan berisi halaman login (LoginScreen) yang digunakan dalam aplikasi ini.
+- `flutter/material.dart`: Library ini merupakan bagian dari framework Flutter yang menyediakan widget dan fitur Material Design.
+- `myapp/pages/login.dart`: File ini mengimpor file eksternal `login.dart` yang berada di folder `pages`. File ini akan berisi halaman login (`LoginScreen`) yang digunakan dalam aplikasi ini.
 
 
-### 2. Fungsi main():
+### 2. Fungsi `main()`:
 ```dart
 void main() {
   runApp(const MyApp());
 }
 ```
 
-- Fungsi main() adalah titik awal aplikasi. Di dalam fungsi ini, widget utama MyApp dijalankan menggunakan runApp().
-- runApp() bertanggung jawab untuk menempatkan widget utama ke dalam pohon widget dan menampilkan aplikasi pada layar.
+- Fungsi `main()` adalah titik awal aplikasi. Di dalam fungsi ini, widget utama `MyApp` dijalankan menggunakan `runApp()`.
+- `runApp()` bertanggung jawab untuk menempatkan widget utama ke dalam pohon widget dan menampilkan aplikasi pada layar.
 
 
-### 3. kelas MyApp:
+### 3. kelas `MyApp`:
 ```dart
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 ```
 
-- MyApp adalah kelas yang mewarisi dari StatelessWidget, yang berarti widget ini bersifat statis dan tidak akan berubah selama siklus hidupnya.
-- const di sini digunakan untuk membuat widget menjadi immutable dan meningkatkan performa dengan membiarkan Dart melakukan optimisasi.
+- `MyApp` adalah kelas yang mewarisi dari `StatelessWidget`, yang berarti widget ini bersifat statis dan tidak akan berubah selama siklus hidupnya.
+- `const` di sini digunakan untuk membuat widget menjadi immutable dan meningkatkan performa dengan membiarkan Dart melakukan optimisasi.
 
 
-### 4. Method build():
+### 4. Method `build()`:
 ```dart
 @override
 Widget build(BuildContext context) {
@@ -79,11 +82,11 @@ Widget build(BuildContext context) {
 }
 ```
 
-- build() adalah method yang menghasilkan pohon widget yang akan ditampilkan di layar. Pada method ini, kita mengembalikan widget MaterialApp.
-- MaterialApp: Ini adalah widget utama yang mengatur konfigurasi global aplikasi, seperti tema, title, dan halaman utama (home).
-    - title: 'Flutter Demo': Menentukan judul aplikasi yang ditampilkan saat user melakukan multitasking di perangkat.
-    - theme: ThemeData: Digunakan untuk mengatur tema aplikasi. Pada contoh ini, ColorScheme dihasilkan dari warna seed (Colors.deepPurple) dan menggunakan Material Design 3 (dengan useMaterial3: true).
-    - home: const LoginScreen(): Menunjukkan bahwa halaman utama aplikasi adalah LoginScreen, yang diambil dari login.dart. LoginScreen merupakan widget yang menampilkan layar login di aplikasi.
+- `build()` adalah method yang menghasilkan pohon widget yang akan ditampilkan di layar. Pada method ini, kita mengembalikan widget `MaterialApp`.
+- `MaterialApp`: Ini adalah widget utama yang mengatur konfigurasi global aplikasi, seperti tema, title, dan halaman utama (home).
+    - `title: 'Flutter Demo'`: Menentukan judul aplikasi yang ditampilkan saat user melakukan multitasking di perangkat.
+    - `theme: ThemeData`: Digunakan untuk mengatur tema aplikasi. Pada contoh ini, ColorScheme dihasilkan dari warna seed (`Colors.deepPurple`) dan menggunakan Material Design 3 (dengan `useMaterial3: true`).
+    - `home: const LoginScreen()`: Menunjukkan bahwa halaman utama aplikasi adalah LoginScreen, yang diambil dari `login.dart`. LoginScreen merupakan widget yang menampilkan layar login di aplikasi.
 
 
 ## `background.dart`
@@ -123,7 +126,7 @@ class Background extends StatelessWidget {
 }
 ```
 
-Kode ini mendefinisikan sebuah widget bernama Background yang merupakan StatelessWidget dan bertujuan untuk menyediakan latar belakang gambar dengan tata letak yang fleksibel. Background menerima satu parameter child, yang akan di-render di atas gambar latar belakang yang ditampilkan. Berikut adalah penjelasan lebih detail dari setiap bagian:
+Kode ini mendefinisikan sebuah widget bernama Background yang merupakan `StatelessWidget` dan bertujuan untuk menyediakan latar belakang gambar dengan tata letak yang fleksibel. Background menerima satu parameter `child`, yang akan di-render di atas gambar latar belakang yang ditampilkan. Berikut adalah penjelasan lebih detail dari setiap bagian:
 
 
 ### 1. Deklarasi Kelas Background:
@@ -137,7 +140,7 @@ class Background extends StatelessWidget {
   });
 ```
 
-- Background adalah sebuah StatelessWidget, yang berarti widget ini tidak memiliki state dan hanya perlu dibangun sekali.
+- Background adalah sebuah `StatelessWidget`, yang berarti widget ini tidak memiliki state dan hanya perlu dibangun sekali.
 - Widget ini menerima satu parameter child, yang merupakan widget apapun yang akan ditampilkan di atas latar belakang gambar.
 
 
@@ -148,8 +151,8 @@ Widget build(BuildContext context) {
   Size size = MediaQuery.of(context).size;
 ```
 
-- Method build digunakan untuk membangun UI halaman, di mana kita menggunakan MediaQuery untuk mendapatkan ukuran layar (lebar dan tinggi). Ini memungkinkan tata letak bersifat responsif, menyesuaikan dengan berbagai ukuran layar.
-- size adalah variabel yang menyimpan informasi ukuran layar perangkat, dengan properti size.width dan size.height.
+- Method build digunakan untuk membangun UI halaman, di mana kita menggunakan `MediaQuery` untuk mendapatkan ukuran layar (lebar dan tinggi). Ini memungkinkan tata letak bersifat responsif, menyesuaikan dengan berbagai ukuran layar.
+- `size` adalah variabel yang menyimpan informasi ukuran layar perangkat, dengan properti `size.width` dan `size.height`.
 
 
 ### 3. Widget SizedBox untuk Menentukan Ukuran:
@@ -162,8 +165,8 @@ return SizedBox(
     children: <Widget>[
 ```
 
-- SizedBox digunakan untuk menentukan ukuran dari Background widget. width: double.infinity memastikan widget ini akan mengisi seluruh lebar layar, sedangkan height: size.height membuat widget ini menempati seluruh tinggi layar.
-- Stack digunakan untuk menumpuk widget satu di atas yang lain. Dalam hal ini, child yang diterima oleh Background akan ditempatkan di atas gambar latar belakang.
+- `SizedBox` digunakan untuk menentukan ukuran dari Background `widget`. `width: double.infinity` memastikan widget ini akan mengisi seluruh lebar layar, sedangkan `height: size.height` membuat widget ini menempati seluruh tinggi layar.
+- `Stack` digunakan untuk menumpuk widget satu di atas yang lain. Dalam hal ini, child yang diterima oleh Background akan ditempatkan di atas gambar latar belakang.
 
 
 ### 4. Menampilkan Gambar Latar Belakang dengan Align:
@@ -177,8 +180,8 @@ Align(
 ),
 ```
 
-- Align digunakan untuk menempatkan gambar pada posisi tertentu di dalam Stack. Dalam kasus ini, gambar diatur dengan Alignment(0, -0.8), yang berarti gambar akan berada di tengah secara horizontal, dan sedikit di atas (80% ke arah atas) secara vertikal.
-- Image.asset digunakan untuk menampilkan gambar yang diambil dari direktori assets/images/main2.png. Gambar ini diatur agar lebarnya adalah 35% dari lebar layar (size.width * 0.35), sehingga ukurannya akan responsif terhadap berbagai ukuran layar.
+- Align digunakan untuk menempatkan gambar pada posisi tertentu di dalam `Stack`. Dalam kasus ini, gambar diatur dengan `Alignment(0, -0.8)`, yang berarti gambar akan berada di tengah secara horizontal, dan sedikit di atas (80% ke arah atas) secara vertikal.
+- `Image.asset` digunakan untuk menampilkan gambar yang diambil dari direktori `assets/images/main2.png`. Gambar ini diatur agar lebarnya adalah 35% dari lebar layar (`size.width * 0.35`), sehingga ukurannya akan responsif terhadap berbagai ukuran layar.
 
 
 ### 5. Menampilkan child di Atas Gambar:
@@ -186,7 +189,7 @@ Align(
 child  // Child yang lain tetap akan di-render di atas gambar
 ```
 
-- child adalah widget yang akan diterima oleh Background. Widget ini akan di-render di atas gambar latar belakang, karena ditambahkan setelah Image.asset di dalam Stack. Ini memungkinkan gambar latar tetap berada di bawah dan child (yang bisa berupa form, teks, tombol, atau lainnya) tetap berada di atas gambar.
+- `child` adalah widget yang akan diterima oleh `Background`. Widget ini akan di-render di atas gambar latar belakang, karena ditambahkan setelah `Image.asset` di dalam `Stack`. Ini memungkinkan gambar latar tetap berada di bawah dan child (yang bisa berupa form, teks, tombol, atau lainnya) tetap berada di atas gambar.
 
 
 ## `login.dart`
@@ -354,9 +357,9 @@ import 'package:myapp/pages/home.dart'; // Halaman Home
 import 'package:myapp/components/background.dart';
 ```
 
-- flutter/material.dart: Library utama Flutter yang menyediakan widget dan fitur desain Material.
-- register.dart dan home.dart: File ini mengimpor halaman RegisterScreen (untuk registrasi) dan HomeScreen (untuk halaman setelah login).
-- background.dart: Berisi komponen kustom Background yang menampilkan tata letak latar belakang di halaman login.
+- `flutter/material.dart`: Library utama Flutter yang menyediakan widget dan fitur desain Material.
+- `register.dart` dan `home.dart`: File ini mengimpor halaman `RegisterScreen` (untuk registrasi) dan `HomeScreen` (untuk halaman setelah login).
+- `background.dart`: Berisi komponen kustom `Background` yang menampilkan tata letak latar belakang di halaman `login`.
 
 
 ### 2. Kelas LoginScreen:
@@ -365,8 +368,8 @@ class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 ```
 
-- LoginScreen adalah widget berbasis StatefulWidget, yang memungkinkan perubahan tampilan berdasarkan interaksi pengguna.
-- Widget ini memerlukan State, yang dikelola dalam kelas _LoginScreenState.
+- `LoginScreen` adalah widget berbasis `StatefulWidget`, yang memungkinkan perubahan tampilan berdasarkan interaksi pengguna.
+- Widget ini memerlukan State, yang dikelola dalam kelas `_LoginScreenState`.
 
 
 ### 3. Kelas _LoginScreenState:
@@ -376,8 +379,8 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _passwordController = TextEditingController();
 ```
 
-- Kelas ini menyimpan state dari LoginScreen, mengontrol dua TextField untuk username dan password menggunakan TextEditingController.
-- TextEditingController digunakan untuk mengambil dan memanipulasi teks yang dimasukkan di field.
+- Kelas ini menyimpan state dari `LoginScreen`, mengontrol dua `TextField` untuk username dan password menggunakan TextEditingController.
+- `TextEditingController` digunakan untuk mengambil dan memanipulasi teks yang dimasukkan di field.
 
 
 ### 4. Method build():
@@ -386,7 +389,7 @@ class _LoginScreenState extends State<LoginScreen> {
 Widget build(BuildContext context) {
 ```
 
-- build() adalah method yang menghasilkan tampilan antarmuka aplikasi. Di dalamnya terdapat struktur tampilan login yang diatur menggunakan widget Material.
+- `build()` adalah method yang menghasilkan tampilan antarmuka aplikasi. Di dalamnya terdapat struktur tampilan login yang diatur menggunakan widget Material.
 
 
 ### 5. Widget Scaffold dan Background:
@@ -395,8 +398,8 @@ return Scaffold(
   body: Background(
 ```
 
-- Scaffold adalah kerangka dasar dari halaman yang berisi struktur elemen UI, seperti body, appBar, dll.
-- Background adalah widget kustom yang menampilkan latar belakang untuk halaman login.
+- `Scaffold` adalah kerangka dasar dari halaman yang berisi struktur elemen UI, seperti body, appBar, dll.
+- `Background` adalah widget kustom yang menampilkan latar belakang untuk halaman `login`.
 
 
 ### 6. Struktur Layout Kolom:
@@ -407,8 +410,8 @@ Column(
     SizedBox(height: size.height * 0.33),
 ```
 
-- Menggunakan widget Column untuk menata elemen-elemen secara vertikal dengan properti mainAxisAlignment yang mengatur posisinya.
-- SizedBox digunakan untuk memberikan jarak antara elemen, seperti di sini yang memberikan jarak dari atas sebesar sepertiga tinggi layar.
+- Menggunakan widget `Column` untuk menata elemen-elemen secara vertikal dengan properti `mainAxisAlignment` yang mengatur posisinya.
+- `SizedBox` digunakan untuk memberikan jarak antara elemen, seperti di sini yang memberikan jarak dari atas sebesar sepertiga tinggi layar.
 
 
 ### 7. Judul "LOGIN":
@@ -439,8 +442,8 @@ Container(
 ),
 ```
 
-- TextField digunakan untuk menerima input dari pengguna. Controller yang sudah didefinisikan (_usernameController dan _passwordController) terhubung untuk mengelola teks yang dimasukkan.
-- Field password menggunakan properti obscureText: true agar teks yang dimasukkan disembunyikan.
+- `TextField` digunakan untuk menerima input dari pengguna. Controller yang sudah didefinisikan (`_usernameController` dan `_passwordController`) terhubung untuk mengelola teks yang dimasukkan.
+- Field password menggunakan properti `obscureText: true` agar teks yang dimasukkan disembunyikan.
 
 
 ### 9. Tombol "LOGIN":
@@ -466,8 +469,8 @@ ElevatedButton(
 ```
 
 - Tombol login dikemas menggunakan ElevatedButton.
-- Di dalam event onPressed, dilakukan pengecekan apakah username dan password diisi. Jika keduanya tidak kosong, halaman akan berpindah ke HomeScreen dengan mengirimkan username yang diinput.
-- Jika salah satu kosong, akan muncul pesan menggunakan SnackBar.
+- Di dalam event `onPressed`, dilakukan pengecekan apakah username dan password diisi. Jika keduanya tidak kosong, halaman akan berpindah ke `HomeScreen` dengan mengirimkan username yang diinput.
+- Jika salah satu kosong, akan muncul pesan menggunakan `SnackBar`.
 
 
 ### 10. Navigasi ke Halaman Register:
@@ -484,7 +487,7 @@ GestureDetector(
 )
 ```
 
-- GestureDetector membungkus teks "Register" yang memungkinkan teks ini menjadi interaktif. Ketika teks ditekan, pengguna akan diarahkan ke halaman RegisterScreen menggunakan Navigator.push().
+- `GestureDetector` membungkus teks "Register" yang memungkinkan teks ini menjadi interaktif. Ketika teks ditekan, pengguna akan diarahkan ke halaman RegisterScreen menggunakan `Navigator.push()`.
 
 
 ## `home.dart`
@@ -583,7 +586,7 @@ class HomeScreen extends StatelessWidget {
 }
 ```
 
-Kode ini menampilkan halaman HomeScreen yang menerima userName dari halaman sebelumnya (seperti LoginScreen). Halaman ini terdiri dari sebuah greeting (sapaan) kepada pengguna, gambar banner, serta daftar menu makanan yang ditampilkan secara visual dengan gambar dan deskripsi. Berikut adalah penjelasan lebih detail dari setiap bagian:
+Kode ini menampilkan halaman HomeScreen yang menerima userName dari halaman sebelumnya (seperti `LoginScreen`). Halaman ini terdiri dari sebuah greeting (sapaan) kepada pengguna, gambar banner, serta daftar menu makanan yang ditampilkan secara visual dengan gambar dan deskripsi. Berikut adalah penjelasan lebih detail dari setiap bagian:
 
 
 ### 1. Deklarasi Kelas HomeScreen:
@@ -594,8 +597,8 @@ class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key, required this.userName});
 ```
 
-- HomeScreen adalah widget StatelessWidget, yang berarti widget ini tidak memiliki state yang berubah-ubah selama siklus hidupnya.
-- userName adalah parameter yang diterima dari halaman sebelumnya, dan akan ditampilkan di halaman ini.
+- `HomeScreen` adalah widget `StatelessWidget`, yang berarti widget ini tidak memiliki state yang berubah-ubah selama siklus hidupnya.
+- `userName` adalah parameter yang diterima dari halaman sebelumnya, dan akan ditampilkan di halaman ini.
 
 
 ### 2. Method build():
@@ -604,7 +607,7 @@ class HomeScreen extends StatelessWidget {
 Widget build(BuildContext context) {
 ```
 
-- Method ini membangun UI halaman dengan struktur widget yang akan ditampilkan kepada pengguna. Halaman menggunakan Scaffold untuk menyediakan struktur dasar, seperti body.
+- Method ini membangun UI halaman dengan struktur widget yang akan ditampilkan kepada pengguna. Halaman menggunakan `Scaffold` untuk menyediakan struktur dasar, seperti `body`.
 
 
 ### 3. Padding dan Column:
@@ -616,8 +619,8 @@ return Scaffold(
       crossAxisAlignment: CrossAxisAlignment.start,
 ```
 
-- Padding digunakan untuk memberikan jarak di sekitar semua elemen di dalam body dengan jarak 16 pixel di setiap sisi.
-- Column digunakan untuk menyusun widget secara vertikal, dengan properti crossAxisAlignment diatur ke CrossAxisAlignment.start sehingga semua elemen di dalamnya diratakan ke kiri.
+- `Padding` digunakan untuk memberikan jarak di sekitar semua elemen di dalam body dengan jarak 16 pixel di setiap sisi.
+- `Column` digunakan untuk menyusun widget secara vertikal, dengan properti `crossAxisAlignment` diatur ke `CrossAxisAlignment.start` sehingga semua elemen di dalamnya diratakan ke kiri.
 
 
 ### 4. Avatar dan Sapaan Pengguna:
@@ -651,9 +654,9 @@ Row(
 ),
 ```
 
-- Row digunakan untuk menyusun avatar dan sapaan pengguna secara horizontal.
-CircleAvatar menampilkan gambar avatar dengan radius 30 pixel, mengambil gambar dari assets/images/avatar.png.
-- Text pertama menampilkan sapaan personal dengan username yang diterima dari halaman sebelumnya, sedangkan Text kedua menampilkan pesan "Selamat Pagi."
+- `Row` digunakan untuk menyusun avatar dan sapaan pengguna secara horizontal.
+`CircleAvatar` menampilkan gambar avatar dengan radius 30 pixel, mengambil gambar dari assets/images/avatar.png.
+- Text pertama menampilkan sapaan personal dengan username yang diterima dari halaman sebelumnya, sedangkan `Text` kedua menampilkan pesan "Selamat Pagi."
 
 
 ### 5. Gambar Banner:
@@ -669,9 +672,9 @@ ClipRRect(
 ),
 ```
 
-- ClipRRect digunakan untuk membuat gambar dengan sudut yang melengkung (border radius 15 pixel).
-- Image.asset menampilkan gambar yang diambil dari direktori assets/images/banner.png dengan properti BoxFit.cover, yang berarti gambar akan menyesuaikan ukuran wadahnya dengan memotong jika diperlukan.
-- width: double.infinity memastikan gambar melebar penuh di layar.
+- `ClipRRect` digunakan untuk membuat gambar dengan sudut yang melengkung (`border radius 15 pixel`).
+- `Image.asset` menampilkan gambar yang diambil dari direktori `assets/images/banner.png` dengan properti `BoxFit.cover`, yang berarti gambar akan menyesuaikan ukuran wadahnya dengan memotong jika diperlukan.
+- `width: double.infinity` memastikan gambar melebar penuh di layar.
 
 
 ### 6. Daftar Menu Makanan dengan ListView:
@@ -711,9 +714,9 @@ Expanded(
 ),
 ```
 
-- Expanded memastikan bahwa ListView menempati seluruh sisa ruang vertikal di dalam kolom.
-- ListView digunakan untuk membuat daftar yang dapat di-scroll secara vertikal, berisi item-item ListTile.
-- Setiap ListTile menampilkan gambar makanan di sebelah kiri (leading), diambil dari assets/images/, diikuti oleh judul (nama makanan) dan subtitle (harga makanan).
+- `Expanded` memastikan bahwa `ListView` menempati seluruh sisa ruang vertikal di dalam kolom.
+- `ListView` digunakan untuk membuat daftar yang dapat di-scroll secara vertikal, berisi item-item `ListTile`.
+- Setiap List`Tile menampilkan gambar makanan di sebelah kiri (leading), diambil dari `assets/images/`, diikuti oleh judul (nama makanan) dan subtitle (harga makanan).
 
 
 ### 7. Tata Letak Keseluruhan:
