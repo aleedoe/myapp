@@ -187,3 +187,303 @@ child  // Child yang lain tetap akan di-render di atas gambar
 ```
 
 - child adalah widget yang akan diterima oleh Background. Widget ini akan di-render di atas gambar latar belakang, karena ditambahkan setelah Image.asset di dalam Stack. Ini memungkinkan gambar latar tetap berada di bawah dan child (yang bisa berupa form, teks, tombol, atau lainnya) tetap berada di atas gambar.
+
+
+## `login.dart`
+```dart
+import 'package:flutter/material.dart';
+import 'package:myapp/pages/register.dart';
+import 'package:myapp/pages/home.dart'; // Halaman Home
+import 'package:myapp/components/background.dart';
+
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _LoginScreenState createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
+    return Scaffold(
+      body: Background(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            SizedBox(height: size.height * 0.33),
+            Container(
+              alignment: Alignment.centerLeft,
+              padding: const EdgeInsets.symmetric(horizontal: 40),
+              child: const Text(
+                "LOGIN",
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Color.fromARGB(255, 104, 104, 104),
+                    fontSize: 36),
+                textAlign: TextAlign.left,
+              ),
+            ),
+            Container(
+              alignment: Alignment.center,
+              margin: const EdgeInsets.symmetric(horizontal: 40),
+              child: TextField(
+                controller: _usernameController,
+                decoration: const InputDecoration(labelText: "Username"),
+              ),
+            ),
+            SizedBox(height: size.height * 0.03),
+            Container(
+              alignment: Alignment.center,
+              margin: const EdgeInsets.symmetric(horizontal: 40),
+              child: TextField(
+                controller: _passwordController,
+                decoration: const InputDecoration(labelText: "Password"),
+                obscureText: true,
+              ),
+            ),
+            Container(
+              alignment: Alignment.centerRight,
+              margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+              child: const Text(
+                "Forgot password?",
+                style: TextStyle(fontSize: 16, color: Color(0XFF2661FA)),
+              ),
+            ),
+            SizedBox(height: size.height * 0.01),
+            Container(
+              alignment: Alignment.center,
+              margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+              child: ElevatedButton(
+                onPressed: () {
+                  // Ambil username dari TextField dan pindahkan ke halaman Home
+                  String username = _usernameController.text;
+
+                  // Periksa apakah username dan password diisi
+                  if (username.isNotEmpty && _passwordController.text.isNotEmpty) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => HomeScreen(userName: username), // Kirim username ke halaman Home
+                      ),
+                    );
+                  } else {
+                    // Tampilkan pesan jika username atau password kosong
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Please enter both username and password'),
+                      ),
+                    );
+                  }
+                },
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(80.0),
+                  ),
+                  padding: const EdgeInsets.all(0),
+                ),
+                child: Container(
+                  alignment: Alignment.center,
+                  height: 50.0,
+                  width: size.width * 0.5,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(80.0),
+                    gradient: const LinearGradient(colors: [
+                      Color.fromARGB(255, 255, 136, 34),
+                      Color.fromARGB(255, 255, 177, 41),
+                    ]),
+                  ),
+                  padding: const EdgeInsets.all(0),
+                  child: const Text(
+                    "LOGIN",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              alignment: Alignment.center,
+              padding: const EdgeInsets.symmetric(horizontal: 40),
+              child: const Text(
+                "or",
+                style: TextStyle(
+                    color: Color.fromARGB(255, 104, 104, 104),
+                    fontSize: 18),
+                textAlign: TextAlign.left,
+              ),
+            ),
+            Container(
+              alignment: Alignment.center,
+              margin: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
+              child: GestureDetector(
+                onTap: () => {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const RegisterScreen()))
+                },
+                child: const Text(
+                  "Register",
+                  style: TextStyle(
+                      fontSize: 18,
+                      color: Color(0xFF2661FA)),
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+```
+
+Kode ini merupakan bagian dari aplikasi Flutter yang menampilkan halaman login dengan dua input, yaitu username dan password, serta tombol untuk melakukan login dan navigasi ke halaman registrasi. Berikut penjelasan setiap bagian:
+
+
+### 1. Import Libraries:
+```dart
+import 'package:flutter/material.dart';
+import 'package:myapp/pages/register.dart';
+import 'package:myapp/pages/home.dart'; // Halaman Home
+import 'package:myapp/components/background.dart';
+```
+
+- flutter/material.dart: Library utama Flutter yang menyediakan widget dan fitur desain Material.
+- register.dart dan home.dart: File ini mengimpor halaman RegisterScreen (untuk registrasi) dan HomeScreen (untuk halaman setelah login).
+- background.dart: Berisi komponen kustom Background yang menampilkan tata letak latar belakang di halaman login.
+
+
+### 2. Kelas LoginScreen:
+```dart
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
+```
+
+- LoginScreen adalah widget berbasis StatefulWidget, yang memungkinkan perubahan tampilan berdasarkan interaksi pengguna.
+- Widget ini memerlukan State, yang dikelola dalam kelas _LoginScreenState.
+
+
+### 3. Kelas _LoginScreenState:
+```dart
+class _LoginScreenState extends State<LoginScreen> {
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+```
+
+- Kelas ini menyimpan state dari LoginScreen, mengontrol dua TextField untuk username dan password menggunakan TextEditingController.
+- TextEditingController digunakan untuk mengambil dan memanipulasi teks yang dimasukkan di field.
+
+
+### 4. Method build():
+```dart
+@override
+Widget build(BuildContext context) {
+```
+
+- build() adalah method yang menghasilkan tampilan antarmuka aplikasi. Di dalamnya terdapat struktur tampilan login yang diatur menggunakan widget Material.
+
+
+### 5. Widget Scaffold dan Background:
+```dart
+return Scaffold(
+  body: Background(
+```
+
+- Scaffold adalah kerangka dasar dari halaman yang berisi struktur elemen UI, seperti body, appBar, dll.
+- Background adalah widget kustom yang menampilkan latar belakang untuk halaman login.
+
+
+### 6. Struktur Layout Kolom:
+```dart
+Column(
+  mainAxisAlignment: MainAxisAlignment.start,
+  children: <Widget>[
+    SizedBox(height: size.height * 0.33),
+```
+
+- Menggunakan widget Column untuk menata elemen-elemen secara vertikal dengan properti mainAxisAlignment yang mengatur posisinya.
+- SizedBox digunakan untuk memberikan jarak antara elemen, seperti di sini yang memberikan jarak dari atas sebesar sepertiga tinggi layar.
+
+
+### 7. Judul "LOGIN":
+```dart
+Container(
+  alignment: Alignment.centerLeft,
+  padding: const EdgeInsets.symmetric(horizontal: 40),
+  child: const Text(
+    "LOGIN",
+    style: TextStyle(
+        fontWeight: FontWeight.bold,
+        color: Color.fromARGB(255, 104, 104, 104),
+        fontSize: 36),
+```
+
+- Text ini menampilkan judul halaman dengan gaya tebal dan ukuran font 36, serta warna abu-abu.
+
+
+### 8. TextField untuk Username dan Password:
+```dart
+Container(
+  alignment: Alignment.center,
+  margin: const EdgeInsets.symmetric(horizontal: 40),
+  child: TextField(
+    controller: _usernameController,
+    decoration: const InputDecoration(labelText: "Username"),
+  ),
+),
+```
+
+- TextField digunakan untuk menerima input dari pengguna. Controller yang sudah didefinisikan (_usernameController dan _passwordController) terhubung untuk mengelola teks yang dimasukkan.
+- Field password menggunakan properti obscureText: true agar teks yang dimasukkan disembunyikan.
+
+
+### 9. Tombol "LOGIN":
+```dart
+ElevatedButton(
+  onPressed: () {
+    String username = _usernameController.text;
+    if (username.isNotEmpty && _passwordController.text.isNotEmpty) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => HomeScreen(userName: username),
+        ),
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('Please enter both username and password'),
+        ),
+      );
+    }
+  },
+```
+
+- Tombol login dikemas menggunakan ElevatedButton.
+- Di dalam event onPressed, dilakukan pengecekan apakah username dan password diisi. Jika keduanya tidak kosong, halaman akan berpindah ke HomeScreen dengan mengirimkan username yang diinput.
+- Jika salah satu kosong, akan muncul pesan menggunakan SnackBar.
+
+
+### 10. Navigasi ke Halaman Register:
+```dart
+GestureDetector(
+  onTap: () => {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => const RegisterScreen()))
+  },
+  child: const Text(
+    "Register",
+    style: TextStyle(fontSize: 18, color: Color(0xFF2661FA)),
+  ),
+)
+```
+
+- GestureDetector membungkus teks "Register" yang memungkinkan teks ini menjadi interaktif. Ketika teks ditekan, pengguna akan diarahkan ke halaman RegisterScreen menggunakan Navigator.push().
+
+
