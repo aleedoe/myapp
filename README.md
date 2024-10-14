@@ -718,3 +718,12 @@ Expanded(
 
 ### 7. Tata Letak Keseluruhan:
 Tata letak dari halaman ini berfokus pada menampilkan avatar pengguna di bagian atas, diikuti oleh sapaan, gambar banner, dan kemudian daftar menu makanan. Setiap bagian diatur dengan jarak yang proporsional menggunakan SizedBox.
+
+
+## Refrensi
+- [Flutter Official Documentation](https://docs.flutter.dev/)
+- [Flutter MediaQuery Guide](https://docs.flutter.dev/ui/adaptive-responsive/safearea-mediaquery)
+- [Using Stack in Flutter](https://api.flutter.dev/flutter/widgets/Stack-class.html)
+- [Flutter Image Asset Documentation](https://docs.flutter.dev/ui/assets/assets-and-images)
+- [TextField in Flutter](https://docs.flutter.dev/cookbook/forms/text-input)
+- [Flutter Navigation and Routes](https://docs.flutter.dev/ui/navigation)
