@@ -348,6 +348,8 @@ class _LoginScreenState extends State<LoginScreen> {
 }
 ```
 
+![image](https://github.com/user-attachments/assets/fe64215c-647a-4be7-92a4-421b5705d143)
+
 Kode ini merupakan bagian dari aplikasi Flutter yang menampilkan halaman login dengan dua input, yaitu username dan password, serta tombol untuk melakukan login dan navigasi ke halaman registrasi. Berikut penjelasan setiap bagian:
 
 
@@ -587,6 +589,8 @@ class HomeScreen extends StatelessWidget {
   }
 }
 ```
+
+![image](https://github.com/user-attachments/assets/656a2c30-dbe2-4482-9187-6e309bb7c1cf)
 
 Kode ini menampilkan halaman HomeScreen yang menerima userName dari halaman sebelumnya (seperti `LoginScreen`). Halaman ini terdiri dari sebuah greeting (sapaan) kepada pengguna, gambar banner, serta daftar menu makanan yang ditampilkan secara visual dengan gambar dan deskripsi. Berikut adalah penjelasan lebih detail dari setiap bagian:
 
