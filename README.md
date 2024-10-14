@@ -126,6 +126,8 @@ class Background extends StatelessWidget {
 }
 ```
 
+![image](https://github.com/user-attachments/assets/b254fe30-1549-481e-8459-1a330e2cc09f)
+
 Kode ini mendefinisikan sebuah widget bernama Background yang merupakan `StatelessWidget` dan bertujuan untuk menyediakan latar belakang gambar dengan tata letak yang fleksibel. Background menerima satu parameter `child`, yang akan di-render di atas gambar latar belakang yang ditampilkan. Berikut adalah penjelasan lebih detail dari setiap bagian:
 
 
